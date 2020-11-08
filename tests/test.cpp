@@ -9,3 +9,10 @@ TEST(ConstructorTests, DefaultConstructor)
     EXPECT_EQ(rect.area(), 0);
     EXPECT_EQ(rect.perimeter(), 0);
 }
+
+TEST(ConstructorTests, ConstructorPositiveWidthAndHeight)
+{
+    Rectangle rect(2, 2);
+    EXPECT_EQ(rect.area(), 4);
+    EXPECT_EQ(rect.perimeter(), 4);
+}

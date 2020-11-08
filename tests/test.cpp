@@ -30,3 +30,10 @@ TEST(ConstructorTests, ConstructorNegativeWidthAndHeight)
         }
     }, std::invalid_argument);
 }
+
+TEST(ConstructorTests, ConstructorZeroWidthAndHeight)
+{
+    Rectangle* rect = new Rectangle(0, 0);
+    EXPECT_EQ(rect->area(), 0);
+    EXPECT_EQ(rect->perimeter(), 0);
+}

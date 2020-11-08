@@ -76,3 +76,17 @@ TEST(AreaTests, AreaZeroAndPositiveWidthAndHeight)
     Rectangle* rect = new Rectangle(0, 2);
     EXPECT_EQ(rect->area(), 0);
 }
+
+TEST(AreaTests, AreaZeroAndNegativeWidthAndHeight)
+{
+    EXPECT_THROW({
+        try {
+            Rectangle rect(0, -4);
+        }
+        catch (std::invalid_argument& ia)
+        {
+            EXPECT_EQ("-4", ia.what());
+            throw;
+        }
+    }, std::invalid_argument);
+}

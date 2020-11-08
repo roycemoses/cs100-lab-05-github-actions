@@ -8,3 +8,17 @@ TEST(PerimeterTests, PerimeterReturnPositive)
 
     EXPECT_EQ(rect->perimeter(), 8);
 }
+
+TEST(PerimeterTests, PerimeterNegative)
+{
+    EXPECT_THROW({
+        try {
+            Rectangle rect(-2, -2);
+        }
+        catch (std::invalid_argument& ia)
+        {
+            EXPECT_EQ("-2", ia.what());
+            throw;
+        }
+    }, std::invalid_argument);
+}

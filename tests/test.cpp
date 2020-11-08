@@ -22,3 +22,10 @@ TEST(PerimeterTests, PerimeterNegative)
         }
     }, std::invalid_argument);
 }
+
+TEST(PerimeterTests, PerimeterZeroByZero)
+{
+    Rectangle* rect = new Rectangle(0, 0);
+
+    EXPECT_EQ(rect->perimeter(), 0);
+}

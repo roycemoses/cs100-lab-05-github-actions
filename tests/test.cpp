@@ -70,3 +70,9 @@ TEST(AreaTests, AreaZeroWidthAndHeight)
     Rectangle* rect = new Rectangle(0, 0);
     EXPECT_EQ(rect->area(), 0);
 }
+
+TEST(AreaTests, AreaZeroAndPositiveWidthAndHeight)
+{
+    Rectangle* rect = new Rectangle(0, 2);
+    EXPECT_EQ(rect->area(), 0);
+}

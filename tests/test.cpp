@@ -45,8 +45,22 @@ TEST(ConstructorTests, ConstructorRationalWidthAndHeight)
     EXPECT_EQ(rect->perimeter(), 8);
 }
 
-TEST(AreaTests, PositiveArea)
+TEST(AreaTests, AreaPositiveWidthAndHeight)
 {
     Rectangle* rect = new Rectangle(2, 2);
     EXPECT_EQ(rect->area(), 4);
+}
+
+TEST(AreaTests, AreaNegativeWidthAndHeight)
+{
+    EXPECT_THROW({
+        try {
+            Rectangle rect(-3, -3);
+        }
+        catch (std::invalid_argument& ia)
+        {
+            EXPECT_EQ("-3", ia.what());
+            throw;
+        }
+    }, std::invalid_argument);
 }

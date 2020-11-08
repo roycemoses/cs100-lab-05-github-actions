@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include "gtest/gtest.h"
 
-TEST(PerimeterTests, PerimeterReturnPositive)
+TEST(PerimeterTests, PerimeterPositive)
 {
     Rectangle* rect = new Rectangle(2, 2);
 
@@ -49,4 +49,11 @@ TEST(PerimeterTests, PerimeterRationalByRational)
     Rectangle* rect = new Rectangle(1.2, 1.99);
 
     EXPECT_EQ(rect->perimeter(), 4);
+}
+
+TEST(PerimeterTests, PerimeterZeroByPositive)
+{
+    Rectangle* rect = new Rectangle(0, 5);
+
+    EXPECT_EQ(rect->perimeter(), 10);
 }

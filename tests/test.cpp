@@ -44,3 +44,9 @@ TEST(ConstructorTests, ConstructorRationalWidthAndHeight)
     EXPECT_EQ(rect->area(), 4);
     EXPECT_EQ(rect->perimeter(), 8);
 }
+
+TEST(AreaTests, PositiveArea)
+{
+    Rectangle* rect = new Rectangle(2, 2);
+    EXPECT_EQ(rect->area(), 4);
+}

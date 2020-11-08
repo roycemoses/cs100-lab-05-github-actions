@@ -17,6 +17,14 @@ Rectangle::Rectangle(int w, int h) :
     }
 }
 
-void Rectangle::set_width(int w) { this->width = w; }
+void Rectangle::set_width(int w) 
+{ 
+    this->width = w;
+    if (w < 0)
+    { 
+        std::invalid_argument ia = std::invalid_argument(std::to_string(w));
+        throw ia;
+    }
+}
 void Rectangle::set_height(int h) { this->height = h; }
 int Rectangle::area() { return this->width * this->height; }

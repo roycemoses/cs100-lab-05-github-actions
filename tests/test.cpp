@@ -23,6 +23,20 @@ TEST(PerimeterTests, PerimeterNegative)
     }, std::invalid_argument);
 }
 
+TEST(PerimeterTests, PerimeterZeroByNegative)
+{
+    EXPECT_THROW({
+        try {
+            Rectangle rect(0, -5);
+        }
+        catch (std::invalid_argument& ia)
+        {
+            EXPECT_EQ("-5", ia.what());
+            throw;
+        }
+    }, std::invalid_argument);
+}
+
 TEST(PerimeterTests, PerimeterZeroByZero)
 {
     Rectangle* rect = new Rectangle(0, 0);

@@ -26,5 +26,13 @@ void Rectangle::set_width(int w)
         throw ia;
     }
 }
-void Rectangle::set_height(int h) { this->height = h; }
+void Rectangle::set_height(int h) 
+{ 
+    this->height = h;
+    if (h < 0) 
+    {
+        std::invalid_argument ia = std::invalid_argument(std::to_string(h));
+        throw ia;
+    }
+}
 int Rectangle::area() { return this->width * this->height; }

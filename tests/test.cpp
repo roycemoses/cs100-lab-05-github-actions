@@ -90,3 +90,9 @@ TEST(AreaTests, AreaZeroAndNegativeWidthAndHeight)
         }
     }, std::invalid_argument);
 }
+
+TEST(AreaTests, AreaRationalWidthAndHeight)
+{
+    Rectangle* rect = new Rectangle(3.4, 7.1);
+    EXPECT_EQ(rect->area(), 21);
+}

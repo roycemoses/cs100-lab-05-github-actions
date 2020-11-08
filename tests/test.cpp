@@ -29,3 +29,10 @@ TEST(PerimeterTests, PerimeterZeroByZero)
 
     EXPECT_EQ(rect->perimeter(), 0);
 }
+
+TEST(PerimeterTests, PerimeterRationalByRational)
+{
+    Rectangle* rect = new Rectangle(1.2, 1.99);
+
+    EXPECT_EQ(rect->perimeter(), 4);
+}

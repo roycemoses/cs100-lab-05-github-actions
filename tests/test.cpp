@@ -1,4 +1,4 @@
-#include "../header/rectangle.hpp"
+#include "../src/rectangle.cpp"
 #include "gtest/gtest.h"
 #include <stdexcept>
 
@@ -24,7 +24,7 @@ TEST(ConstructorTests, ConstructorNegativeWidthAndHeight)
         }
         catch (std::invalid_argument& ia)
         {
-            EXPECT_EQ("-2", ia.what());
+            EXPECT_STREQ("-2", ia.what());
             throw;
         }
     }, std::invalid_argument);
@@ -59,7 +59,7 @@ TEST(PerimeterTests, PerimeterNegative)
         }
         catch (std::invalid_argument& ia)
         {
-            EXPECT_EQ("-2", ia.what());
+            EXPECT_STREQ("-2", ia.what());
             throw;
         }
     }, std::invalid_argument);
@@ -73,7 +73,7 @@ TEST(PerimeterTests, PerimeterZeroByNegative)
         }
         catch (std::invalid_argument& ia)
         {
-            EXPECT_EQ("-5", ia.what());
+            EXPECT_STREQ("-5", ia.what());
             throw;
         }
     }, std::invalid_argument);
@@ -114,7 +114,7 @@ TEST(AreaTests, AreaNegativeWidthAndHeight)
         }
         catch (std::invalid_argument& ia)
         {
-            EXPECT_EQ("-3", ia.what());
+            EXPECT_STREQ("-3", ia.what());
             throw;
         }
     }, std::invalid_argument);
@@ -140,7 +140,7 @@ TEST(AreaTests, AreaZeroAndNegativeWidthAndHeight)
         }
         catch (std::invalid_argument& ia)
         {
-            EXPECT_EQ("-4", ia.what());
+            EXPECT_STREQ("-4", ia.what());
             throw;
         }
     }, std::invalid_argument);

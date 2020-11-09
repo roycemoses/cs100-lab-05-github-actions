@@ -1,19 +1,19 @@
-#include "../header/rectangle.hpp"
+#include "../src/rectangle.cpp"
 #include "gtest/gtest.h"
 #include <stdexcept>
 
 TEST(ConstructorTests, DefaultConstructor)
 {
     Rectangle* rect = new Rectangle();
-    EXPECT_EQ(rect->area(), 0);
-    EXPECT_EQ(rect->perimeter(), 0);
+    EXPECT_EQ(rect->get_width(), 0);
+    EXPECT_EQ(rect->get_height(), 0);
 }
 
 TEST(ConstructorTests, ConstructorPositiveWidthAndHeight)
 {
     Rectangle* rect = new Rectangle(2, 2);
-    EXPECT_EQ(rect->area(), 4);
-    EXPECT_EQ(rect->perimeter(), 8);
+    EXPECT_EQ(rect->get_width(), 2);
+    EXPECT_EQ(rect->get_height(), 2);
 }
 
 TEST(ConstructorTests, ConstructorNegativeWidthAndHeight)
@@ -24,7 +24,7 @@ TEST(ConstructorTests, ConstructorNegativeWidthAndHeight)
         }
         catch (std::invalid_argument& ia)
         {
-            EXPECT_EQ("-2", ia.what());
+            EXPECT_STREQ("-2", ia.what());
             throw;
         }
     }, std::invalid_argument);
@@ -33,15 +33,15 @@ TEST(ConstructorTests, ConstructorNegativeWidthAndHeight)
 TEST(ConstructorTests, ConstructorZeroWidthAndHeight)
 {
     Rectangle* rect = new Rectangle(0, 0);
-    EXPECT_EQ(rect->area(), 0);
-    EXPECT_EQ(rect->perimeter(), 0);
+    EXPECT_EQ(rect->get_width(), 0);
+    EXPECT_EQ(rect->get_height(), 0);
 }
 
 TEST(ConstructorTests, ConstructorRationalWidthAndHeight)
 {
     Rectangle* rect = new Rectangle(2.25, 2.25);
-    EXPECT_EQ(rect->area(), 4);
-    EXPECT_EQ(rect->perimeter(), 8);
+    EXPECT_EQ(rect->get_width(), 2);
+    EXPECT_EQ(rect->get_height(), 2);
 }
 
 TEST(PerimeterTests, PerimeterPositive)
@@ -59,7 +59,7 @@ TEST(PerimeterTests, PerimeterNegative)
         }
         catch (std::invalid_argument& ia)
         {
-            EXPECT_EQ("-2", ia.what());
+            EXPECT_STREQ("-2", ia.what());
             throw;
         }
     }, std::invalid_argument);
@@ -73,7 +73,7 @@ TEST(PerimeterTests, PerimeterZeroByNegative)
         }
         catch (std::invalid_argument& ia)
         {
-            EXPECT_EQ("-5", ia.what());
+            EXPECT_STREQ("-5", ia.what());
             throw;
         }
     }, std::invalid_argument);
@@ -114,7 +114,7 @@ TEST(AreaTests, AreaNegativeWidthAndHeight)
         }
         catch (std::invalid_argument& ia)
         {
-            EXPECT_EQ("-3", ia.what());
+            EXPECT_STREQ("-3", ia.what());
             throw;
         }
     }, std::invalid_argument);
@@ -140,7 +140,7 @@ TEST(AreaTests, AreaZeroAndNegativeWidthAndHeight)
         }
         catch (std::invalid_argument& ia)
         {
-            EXPECT_EQ("-4", ia.what());
+            EXPECT_STREQ("-4", ia.what());
             throw;
         }
     }, std::invalid_argument);

@@ -5,15 +5,15 @@
 TEST(ConstructorTests, DefaultConstructor)
 {
     Rectangle* rect = new Rectangle();
-    EXPECT_EQ(rect->area(), 0);
-    EXPECT_EQ(rect->perimeter(), 0);
+    EXPECT_EQ(rect->get_width(), 0);
+    EXPECT_EQ(rect->get_height(), 0);
 }
 
 TEST(ConstructorTests, ConstructorPositiveWidthAndHeight)
 {
     Rectangle* rect = new Rectangle(2, 2);
-    EXPECT_EQ(rect->area(), 4);
-    EXPECT_EQ(rect->perimeter(), 8);
+    EXPECT_EQ(rect->get_width(), 2);
+    EXPECT_EQ(rect->get_height(), 2);
 }
 
 TEST(ConstructorTests, ConstructorNegativeWidthAndHeight)
@@ -33,15 +33,15 @@ TEST(ConstructorTests, ConstructorNegativeWidthAndHeight)
 TEST(ConstructorTests, ConstructorZeroWidthAndHeight)
 {
     Rectangle* rect = new Rectangle(0, 0);
-    EXPECT_EQ(rect->area(), 0);
-    EXPECT_EQ(rect->perimeter(), 0);
+    EXPECT_EQ(rect->get_width(), 0);
+    EXPECT_EQ(rect->get_height(), 0);
 }
 
 TEST(ConstructorTests, ConstructorRationalWidthAndHeight)
 {
     Rectangle* rect = new Rectangle(2.25, 2.25);
-    EXPECT_EQ(rect->area(), 4);
-    EXPECT_EQ(rect->perimeter(), 8);
+    EXPECT_EQ(rect->get_width(), 2);
+    EXPECT_EQ(rect->get_height(), 2);
 }
 
 TEST(PerimeterTests, PerimeterPositive)

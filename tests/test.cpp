@@ -1,4 +1,4 @@
-#include "../header/rectangle.hpp"
+#include "../src/rectangle.cpp"
 #include "gtest/gtest.h"
 #include <stdexcept>
 

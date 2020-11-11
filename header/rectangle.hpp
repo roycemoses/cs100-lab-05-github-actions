@@ -1,6 +1,7 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
 
+// purposefully incorrect implementation
 class Rectangle {
     private:
         int width;
